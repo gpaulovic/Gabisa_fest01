@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pagina Inicial{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+	<div>
+		<h1 class="text-center">Pagina Inicial</h1> 
+		<img src="{% static 'img/gabisa.jpg'%}" alt="" id="gabisa" class="mx-auto d-block">
+	</div>
+</div>
+{% endblock %}

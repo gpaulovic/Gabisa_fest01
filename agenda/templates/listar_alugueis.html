@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Aluguéis</h2>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Data do aluguel</th>
+                <th>Valor</th>
+                <th>Itens alugados</th>
+                <th>Cliente</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluguel in alugueis %}
+            <tr>
+                <td>{{ aluguel.data_aluguel }}</td>
+                <td>{{ aluguel.valor }}</td>
+                <td>{{ aluguel.itens_alugados }}</td>
+                <td>{{ aluguel.cliente.nome }}</td>
+                <td>
+                    <a href="{% url 'detalhes_aluguel' pk=aluguel.pk %}"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{% url 'excluir_aluguel' pk=aluguel.pk %}"><i class="bi bi-trash bi-5x"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'novo_aluguel' %}" class="btn btn-primary">Novo Aluguel</a>
+{% endblock %}

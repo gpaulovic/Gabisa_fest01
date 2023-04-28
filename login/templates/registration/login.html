@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container-fluid mx-auto"> 
+    <h2 class="text-center">Iniciar seção</h2>
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Iniciar seção</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

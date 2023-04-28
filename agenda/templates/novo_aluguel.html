@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1>Novo Aluguel</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.data_aluguel.id_for_label }}">Data do Aluguel:</label>
+            {% render_field form.data_aluguel class="form-control" %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.valor.id_for_label }}">Valor:</label>
+            {% render_field form.valor class="form-control" %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.itens_alugados.id_for_label }}">Itens Alugados:</label>
+            {% render_field  form.itens_alugados|safe  %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.cliente.id_for_label }}">Cliente:</label>
+            {% render_field form.cliente class="form-control" %}
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}

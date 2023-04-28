@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg border-bottom" style="background-color: #f46c0b;">
+
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="{% url 'index'%}">Gabisa Fest</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'listar_clientes' %}">Clientes</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'listar_alugueis' %}">Agenda</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link active">####</a>
+                </li> -->
+
+            </ul>
+            
+            <div class="d-flex gap-3 align-items-center">
+                
+                    <span class="nav-text">
+                        {{user.username}}
+                    </span>
+                    <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a class="btn btn-outline-primary" href="{% url 'login' %}">Entrar</a>
+                {% endif %} 
+
+            </div>
+           
+        </div>
+
+    </div>
+
+</nav>

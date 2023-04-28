@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center">Detalhes do Cliente</h1>
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>Nome Completo</th>
+              <td>{{ cliente.nome }}</td>
+            </tr>
+            <tr>
+              <th>CPF</th>
+              <td>{{ cliente.cpf }}</td>
+            </tr>
+            <tr>
+              <th>Endereço</th>
+              <td>{{ cliente.endereco }}</td>
+            </tr>
+            <tr>
+              <th>Bairro</th>
+              <td>{{ cliente.bairro }}</td>
+            </tr>
+            <tr>
+              <th>Cidade</th>
+              <td>{{ cliente.cidade }}</td>
+            </tr>
+            <tr>
+              <th>Telefone</th>
+              <td>{{ cliente.telefone }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="{% url 'atualizar_cliente' pk=cliente.pk %}" class="btn btn-primary">Atulizar Cliente</a>
+        <a href="{% url 'listar_clientes' %}" class="btn btn-danger">Voltar</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

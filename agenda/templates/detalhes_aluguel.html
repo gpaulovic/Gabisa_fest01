@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Detalhes do Aluguel {{ id_aluguel.pk }}</h1>
+    <p><strong>Data do aluguel:</strong> {{ aluguel.data_aluguel }}</p>
+    <p><strong>Valor:</strong> R$ {{ aluguel.valor }}</p>
+    <p><strong>Itens alugados:</strong></p>
+    <ul>
+      {% for item in aluguel.itens_alugados.all %}
+        <li>{{ item.nome }} </li>
+      {% endfor %}
+    </ul>
+    <p><strong>Cliente:</strong> {{ aluguel.cliente.nome }}</p>
+    <p>
+      <form action="{% url 'excluir_aluguel' aluguel.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Excluir</button>
+      </form>
+    </p>
+    <p><a href="{% url 'listar_alugueis' %}" class="btn btn-primary">Voltar para a lista de alugueis</a></p>
+  </div>
+{% endblock %}
