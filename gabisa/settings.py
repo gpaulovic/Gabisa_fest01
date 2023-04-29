@@ -132,4 +132,4 @@ AUTH_USER_MODEL = 'login.CustomUser'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'listar_clientes'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'index'
