@@ -17,7 +17,9 @@
             <tr>
                 <td>{{ aluguel.data_aluguel }}</td>
                 <td>{{ aluguel.valor }}</td>
-                <td>{{ aluguel.itens_alugados }}</td>
+                <td>{% for item in aluguel.itens_alugados.all %}
+                    {{ item.nome }},
+                {% endfor %}</td>
                 <td>{{ aluguel.cliente.nome }}</td>
                 <td>
                     <a href="{% url 'detalhes_aluguel' pk=aluguel.pk %}"><i class="bi bi-pencil-square"></i></a>
